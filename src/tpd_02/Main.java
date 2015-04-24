@@ -38,10 +38,10 @@ public class Main {
         
         panel = new JPanel();
         panel.setLayout(null);
-        JLabel jlabel = new JLabel("Gracz 2");
+        JLabel jlabel2 = new JLabel("Gracz 2");
         
-        jlabel.setBounds((((x+2)*50)/2), 0, 100, 30);
-        panel.add(jlabel);
+        jlabel2.setBounds((((x+2)*50)/2), 0, 100, 30);
+        panel.add(jlabel2);
         labell = new JLabel[z];
         jtext1 = new JTextField[x][z];
         for(int i=0;i<x;i++){
@@ -51,6 +51,9 @@ public class Main {
                 panel.add(jtext1[i][j]);
             }
         }
+        JLabel jlabel1 = new JLabel("Gracz 1");
+        jlabel1.setBounds(10, 0, 100, 30);
+        panel.add(jlabel1);
         for(int i=0;i<z;i++){
             labell[i]= new JLabel("Opcja: "+(i+1));
             labell[i].setBounds(10,(i+1)*30, 100, 30);
