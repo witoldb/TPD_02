@@ -11,8 +11,6 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
 
@@ -24,8 +22,8 @@ public class Main {
     
     
     JFrame frame;
-    JTextField jtext1[][];
-    JLabel labell[];
+    JTextField[][] dane;
+    JLabel[] opcja;
     JPanel panel;
     JTextPane jTextAreaLogi;
     String logi=""; 
@@ -42,22 +40,22 @@ public class Main {
         
         jlabel2.setBounds((((x+2)*50)/2), 0, 100, 30);
         panel.add(jlabel2);
-        labell = new JLabel[z];
-        jtext1 = new JTextField[x][z];
+        opcja = new JLabel[z];
+        dane = new JTextField[x][z];
         for(int i=0;i<x;i++){
             for(int j=0;j<z;j++){
-                jtext1[i][j]=new JTextField(""+i);
-                jtext1[i][j].setBounds((i+2)*50, (j+1)*30, 50, 30);
-                panel.add(jtext1[i][j]);
+                dane[i][j]=new JTextField(""+i);
+                dane[i][j].setBounds((i+2)*50, (j+1)*30, 50, 30);
+                panel.add(dane[i][j]);
             }
         }
         JLabel jlabel1 = new JLabel("Gracz 1");
         jlabel1.setBounds(10, 0, 100, 30);
         panel.add(jlabel1);
         for(int i=0;i<z;i++){
-            labell[i]= new JLabel("Opcja: "+(i+1));
-            labell[i].setBounds(10,(i+1)*30, 100, 30);
-            panel.add(labell[i]);
+            opcja[i]= new JLabel("Opcja: "+(i+1));
+            opcja[i].setBounds(10,(i+1)*30, 100, 30);
+            panel.add(opcja[i]);
         }
         jTextAreaLogi = new JTextPane();
         jTextAreaLogi.setBounds(10,(z+1)*30+10,((x+2)*50),(((z+2)*30)+50)-((z+1)*30+10));
@@ -67,7 +65,7 @@ public class Main {
      
         oblicz.addActionListener(new ActionListener(){
         public void actionPerformed(ActionEvent e) {
-            UstawLogi("Działa:"+jtext1[0][0].getText());
+            UstawLogi("Działa:"+dane[0][0].getText());
             }
         });
         oblicz.setBounds(10,((z+1)*30+10)+((((z+2)*30)+50)-((z+1)*30+10)),100,30);
