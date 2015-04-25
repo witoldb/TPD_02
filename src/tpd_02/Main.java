@@ -32,7 +32,7 @@ public class Main {
     Main(int x, int z){
         frame = new JFrame("Podejmowanie decyzji");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(((x+1)*50)+100,((z+2)*30)+100);
+        frame.setSize(((x+1)*50)+100,((z+2)*30)+150);
         
         panel = new JPanel();
         panel.setLayout(null);
