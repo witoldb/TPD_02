@@ -38,7 +38,7 @@ public class TPD_02 extends javax.swing.JFrame {
         jLabelIloscWierszy = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Podaj zakres dat");
+        setTitle("Podaj zakres wartosci");
 
         jLabel1.setText("Podaj zakres danych:");
 
