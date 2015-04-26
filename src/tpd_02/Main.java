@@ -32,6 +32,7 @@ public class Main {
     String logi=""; 
     JButton oblicz;
     int[][] wartosci;
+    int[][] wartosciTemp;
     int x=2;int z=2;
     int min[];
     int minTemp[];
@@ -57,6 +58,7 @@ public class Main {
         opcja = new JLabel[z];
         dane = new JTextField[x][z];
         wartosci= new int[x][z];
+        wartosciTemp= new int[x][z];
         for(int i=0;i<x;i++){
             for(int j=0;j<z;j++){
                 dane[i][j]=new JTextField(""+i);
@@ -82,7 +84,8 @@ public class Main {
         public void actionPerformed(ActionEvent e) {
             UstawLogi("Działa:"+dane[0][0].getText());
             pobierzDane();
-            zmienWartosci();
+            wyszukanieMinMax();
+            zmienMnus();
             }
         });
         oblicz.setBounds(10,((z+1)*30+10)+((((z+2)*30)+50)-((z+1)*30+10)),100,30);
@@ -98,11 +101,30 @@ public class Main {
        for(int i=0;i<x;i++){
             for(int j=0;j<z;j++){
                 wartosci[i][j]=Integer.parseInt(dane[i][j].getText());
+                wartosciTemp[i][j]=wartosci[i][j];
             }
        }
     }
-    void zmienWartosci(){
-       //min
+    void zmienMnus(){
+        int zmien=0;
+        for(int i=0;i<z;i++){
+            minTemp[i]=min[i];
+       }
+        Arrays.sort(minTemp);
+        zmien=minTemp[0];
+        if(zmien<0){
+            zmien=Math.abs(zmien);
+            for(int i=0;i<x;i++){
+                for(int j=0;j<z;j++){
+                    wartosci[i][j]= wartosci[i][j]+zmien;
+                    dane[i][j].setText(""+wartosci[i][j]);
+                }
+           }
+        }
+    }
+    
+    void wyszukanieMinMax(){
+       //min wiersz
        for(int i=0;i<z;i++){
             for(int j=0;j<x;j++){
                 minTemp[j]=wartosci[j][i];
@@ -112,7 +134,7 @@ public class Main {
             min[i]=minTemp[0];
             System.out.println("MIN:"+min[i]);
        }
-       //max
+       //max kolumna
        for(int i=0;i<x;i++){
             for(int j=0;j<z;j++){
                 maxTemp[j]=wartosci[i][j];
